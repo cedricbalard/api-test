@@ -25,7 +25,9 @@
     "winston": "^2.4.1"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
     "grunt-mocha-test": "^0.13.3",
+    "mocha": "^5.0.4",
     "yocto-hint": "^2.0.10"
   }
 }

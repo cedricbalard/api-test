@@ -74,7 +74,7 @@ Schema.prototype.validate = function (data, name) {
     name + ' >, more details : ' + result.error);
 
     // Reject error
-    deferred.reject(result.error);
+    deferred.reject(result.error.toString());
   }
 
   // Return result of promise
