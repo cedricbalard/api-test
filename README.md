@@ -4,4 +4,4 @@ Simple API test with FB integration
 
 ## Docker
 
-App was dockerized 
+App was dockerized wit compose.

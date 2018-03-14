@@ -15,5 +15,17 @@
   "bugs": {
     "url": "https://github.com/cedricbalard/api-test/issues"
   },
-  "homepage": "https://github.com/cedricbalard/api-test#readme"
+  "homepage": "https://github.com/cedricbalard/api-test#readme",
+  "dependencies": {
+    "async": "^2.6.0",
+    "joi": "^13.1.2",
+    "lodash": "^4.17.5",
+    "q": "^1.5.1",
+    "request": "^2.85.0",
+    "winston": "^2.4.1"
+  },
+  "devDependencies": {
+    "grunt-mocha-test": "^0.13.3",
+    "yocto-hint": "^2.0.10"
+  }
 }
