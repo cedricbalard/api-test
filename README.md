@@ -19,3 +19,9 @@ Unit tests based on Mocha/Chai.
 
 ### How to test
 Use command `grunt test`
+
+
+TODO : 
+  - Docs pdf (schema)
+  - Test unitaire complémentaire
+  - Tester réponse FB
