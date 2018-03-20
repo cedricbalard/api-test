@@ -58,7 +58,7 @@ export default class SocialNetworks {
    * @param  data         Object for the post
    * @return              Response of provider
    */
-  public async create (providerName: string, data: object): object {
+  public async create (providerName: string, data: object): Promise<object> {
     try {
       // Try to retrieve provider
       const provider = _.find(this.providers, {
