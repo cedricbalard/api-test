@@ -1,4 +1,4 @@
-import IProvider from './IProvider';
+import IProvider from "./iprovider";
 import * as async from "async";
 import * as request from "request";
 import * as _ from "lodash";
@@ -9,7 +9,7 @@ import * as _ from "lodash";
  * @param logger logger instance
  */
 export default class Facebook implements IProvider {
-  config :object;
+  config: object;
   logger: object;
 
   /**
@@ -31,10 +31,10 @@ export default class Facebook implements IProvider {
    */
   create (data: object): object {
     // Create FB uri
-    let uri = this.config.url + '/' + this.config.version + '/' + this.config.id + '/feed';
+    const uri = this.config.url + "/" + this.config.version + "/" + this.config.id + "/feed";
 
-    this.logger.info('[ Facebook.create ] - Send new request to create post to uri : ' + uri +
-    ' with data : ' + JSON.stringify(data));
+    this.logger.info("[ Facebook.create ] - Send new request to create post to uri : " + uri +
+    " with data : " + JSON.stringify(data));
 
     // Return new promise of HTTP call
     return new Promise((resolve, reject) => {
@@ -48,7 +48,7 @@ export default class Facebook implements IProvider {
         // Check if has error
         if (error || response.statusCode !== 200) {
           // Reject promise because error
-          return reject (new Error('[ Facebook.create ] - error when creating post, details : ' +
+          return reject (new Error("[ Facebook.create ] - error when creating post, details : " +
           (error || body)));
         }
 

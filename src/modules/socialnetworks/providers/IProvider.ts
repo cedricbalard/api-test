@@ -3,5 +3,5 @@
  */
 export default interface IProvider {
   config: object;
-  logger : object;
+  logger: object;
 }

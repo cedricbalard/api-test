@@ -1,7 +1,7 @@
 import * as _ from "lodash";
 import * as winston from "winston";
-import Facebook from './providers/facebook';
-import { Schema } from './schema/schema';
+import Facebook from "./providers/facebook";
+import { Schema } from "./schema/schema";
 
 /**
  * Class to handle SocialNetworks subscription
@@ -27,13 +27,13 @@ export default class SocialNetworks {
     _.each(configs, (c: object) => {
       try {
         // Validate Schema and Reassign object with default value of validation
-        c.config = Schema.validate(c.config, 'load.' + c.name);
+        c.config = Schema.validate(c.config, "load." + c.name);
 
         // Will contains provider
-        let provider = null;
+        let provider = undefined;
 
         // Check name to get provider
-        if (c.name === 'facebook') {
+        if (c.name === "facebook") {
           // Create provider
           provider = new Facebook(c.config, this.logger);
         }
@@ -45,8 +45,8 @@ export default class SocialNetworks {
         });
       } catch (error) {
         // Throw error
-        throw new Error ('[ SocialNetworks.constructor ] - error when load module < ' + c.name +
-        ' > with error : ' + error.toString());
+        throw new Error ("[ SocialNetworks.constructor ] - error when load module < " + c.name +
+        " > with error : " + error.toString());
       }
     });
   }
@@ -61,24 +61,24 @@ export default class SocialNetworks {
   public async create (providerName: string, data: object): object {
     try {
       // Try to retrieve provider
-      let provider = _.find(this.providers, {
+      const provider = _.find(this.providers, {
         name : providerName
       });
 
       // Check if provider is found and enabled
       if (_.isUndefined(provider)) {
         // Not found so break control flow
-        throw new Error ('provider not found for name : ' + providerName);
+        throw new Error ("provider not found for name : " + providerName);
       }
 
       // Validate schema
-      data = Schema.validate(data, 'create.' + providerName);
+      data = Schema.validate(data, "create." + providerName);
 
       // Create post and return his result
       return await provider.module.create(data);
     } catch (error) {
       // Throw error
-      throw new Error ('[ SocialNetworks.create ] - error : ' + error);
+      throw new Error ("[ SocialNetworks.create ] - error : " + error);
     }
   }
 }

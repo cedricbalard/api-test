@@ -3,3 +3,4 @@ node_modules
 *.log
 *~
 test/dev.js
+test.js
